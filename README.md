@@ -1,2 +1,3 @@
 # AutoDownloaderForLostDataset
-Autodownload text files and videos from the dataset
+Currently supports video downloading and tracks'file downloading only. The downloader is built with python.
+
