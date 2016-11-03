@@ -6,16 +6,16 @@ dayArray = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14
 monthArray = ['01','02','03','04','05','06','07','08','09','10','11','12',]
 # Tunable Variables
 currentDay = dayArray[0]
-currentMonth = monthArray[0]
+currentMonth = monthArray[1]
 currentYear = 2013
 pointerDay = 0
-pointerMonth = 0
+pointerMonth = 1
 # login credentials
 username = 'collaborator'
 password = 'bandwidth'
 
 
-while counter < 100:
+while counter < 28:
 	# http://lost.cse.wustl.edu/static/camera/001/001_2013-01-01_11-00-01/001_2013-01-01_11-00-01.avi
 	#template url: http://lost.cse.wustl.edu/static/camera/001/001_2013-08-07_11-00-01/001_2013-08-07_11-00-01.avi
 	# getting the complete url ready
@@ -45,19 +45,23 @@ while counter < 100:
 			currentDay = dayArray[pointerDay]
 			
 	elif pointerMonth == 1:
-		if currentYear%4 == 0 and currentDay == '28':#leapyear
+		if (currentYear%4 == 0) and (currentDay == '28'):#leapyear
 			pointerDay += 1
 			currentDay = dayArray[pointerDay]
-		elif currentYear%4 == 0 and currentDay == '29':#reset to 01 if day ends for the month
+		elif (currentYear%4 == 0) and (currentDay == '29'):#reset to 01 if day ends for the month
+			currentDay = dayArray[0]
+			pointerDay = 0
+			pointerMonth += 1
+			currentMonth = monthArray[pointerMonth]
+		elif (currentYear%4 != 0) and (currentDay == '28'): #Non Leap year
 			currentDay = dayArray[0]
 			pointerDay = 0
 			pointerMonth += 1
 			currentMonth = monthArray[pointerMonth]
 		else:
-			currentDay = dayArray[0]
-			pointerDay = 0
-			pointerMonth += 1
-			currentMonth = monthArray[pointerMonth]
+			pointerDay += 1
+			currentDay = dayArray[pointerDay]
+
 	else: #for 31 days month
 		if currentDay == '30':
 			pointerDay += 1

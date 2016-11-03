@@ -34,19 +34,22 @@ while counter < 100:
 			currentDay = dayArray[pointerDay]
 			
 	elif pointerMonth == 1:
-		if currentYear%4 == 0 and currentDay == '28':#leapyear
+		if (currentYear%4 == 0) and (currentDay == '28'):#leapyear
 			pointerDay += 1
 			currentDay = dayArray[pointerDay]
-		elif currentYear%4 == 0 and currentDay == '29':#reset to 01 if day ends for the month
+		elif (currentYear%4 == 0) and (currentDay == '29'):#reset to 01 if day ends for the month
+			currentDay = dayArray[0]
+			pointerDay = 0
+			pointerMonth += 1
+			currentMonth = monthArray[pointerMonth]
+		elif (currentYear%4 != 0) and (currentDay == '28'): #Non Leap year
 			currentDay = dayArray[0]
 			pointerDay = 0
 			pointerMonth += 1
 			currentMonth = monthArray[pointerMonth]
 		else:
-			currentDay = dayArray[0]
-			pointerDay = 0
-			pointerMonth += 1
-			currentMonth = monthArray[pointerMonth]
+			pointerDay += 1
+			currentDay = dayArray[pointerDay]
 	else: #for 31 days month
 		if currentDay == '30':
 			pointerDay += 1
