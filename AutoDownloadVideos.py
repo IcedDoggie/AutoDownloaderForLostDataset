@@ -16,6 +16,7 @@ currentMonth = monthArray[int(userParam[2]) - 1]
 currentDay = dayArray[int(userParam[3]) - 1]
 pointerMonth = int(userParam[2]) - 1
 pointerDay = int(userParam[3]) - 1
+cameraNo = userParam[5]
 
 # login credentials
 username = 'collaborator'
@@ -28,8 +29,8 @@ while counter < int(userParam[4]): #input 4
 	# getting the complete url ready
 	manager = urlRequest.HTTPPasswordMgrWithPriorAuth()
 	try:
-		filename = '001_' + str(currentYear) + currentMonth + currentDay + '.avi'
-		url = 'http://lost.cse.wustl.edu/static/camera/001/001_' + str(currentYear) + '-' + currentMonth + '-' + currentDay + '_11-00-01/001_' + str(currentYear) + '-' + currentMonth + '-' + currentDay + '_11-00-01.avi'
+		filename = cameraNo + '_' + str(currentYear) + currentMonth + currentDay + '.avi'
+		url = 'http://lost.cse.wustl.edu/static/camera/' + cameraNo + '/' + cameraNo + '_' + str(currentYear) + '-' + currentMonth + '-' + currentDay + '_11-00-01/' + cameraNo + '_' + str(currentYear) + '-' + currentMonth + '-' + currentDay + '_11-00-01.avi'
 		manager.add_password(None, url, username, password)
 		auth = urlRequest.HTTPBasicAuthHandler(manager)
 		opener = urlRequest.build_opener(auth)

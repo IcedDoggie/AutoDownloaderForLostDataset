@@ -18,15 +18,26 @@ pointerMonth = int(userParam[2]) - 1
 pointerDay = int(userParam[3]) - 1
 cameraNo = userParam[5]
 
-while counter < int(userParam[4]):
-	#template url: http://lost.cse.wustl.edu/static/camera/001/001_2013-08-07_11-00-01/tracks.txt
+# login credentials
+username = 'collaborator'
+password = 'bandwidth'
+
+
+while counter < int(userParam[4]): #input 4
+	# http://lost.cse.wustl.edu/static/camera/001/001_2013-01-01_11-00-01/001_2013-01-01_11-00-01.avi
+	#template url: http://lost.cse.wustl.edu/static/camera/017/017_2014-09-22_11-00-01/blobs.txt
 	# getting the complete url ready
+	manager = urlRequest.HTTPPasswordMgrWithPriorAuth()
 	try:
 		filename = cameraNo + '_' + str(currentYear) + currentMonth + currentDay + '.txt'
-		url = 'http://lost.cse.wustl.edu/static/camera/' + cameraNo + '/' + cameraNo + '_' + str(currentYear) + '-' + currentMonth + '-' + currentDay + '_11-00-01/tracks.txt'
+		url = 'http://lost.cse.wustl.edu/static/camera/' + cameraNo + '/' + cameraNo + '_' + str(currentYear) + '-' + currentMonth + '-' + currentDay + '_11-00-01/blobs.txt'
+		manager.add_password(None, url, username, password)
+		auth = urlRequest.HTTPBasicAuthHandler(manager)
+		opener = urlRequest.build_opener(auth)
+		urlRequest.install_opener(opener)
 		#Scrape it!
-		content = urlRequest.urlretrieve(url, filename)
 		print(url)
+		content = urlRequest.urlretrieve(url, filename)
 	except:
 		pass
 	counter += 1
@@ -58,6 +69,7 @@ while counter < int(userParam[4]):
 		else:
 			pointerDay += 1
 			currentDay = dayArray[pointerDay]
+
 	else: #for 31 days month
 		if currentDay == '30':
 			pointerDay += 1
