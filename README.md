@@ -9,12 +9,12 @@ Example: python AutoDownloadTracks.py 2013 1 1 100
   
 NOTE: spacing is important!  
 # Tunables
-Tunable variables in this script includes:
-(1) currentDay : specifying the day that you wish to start with
-(2) currentMonth : specifying the month that you wish to start with
-(3) currentYear : specifying the year that you wish to start with
-(4) pointerDay : the starting position in the array(eg :if you choose the 8th day in the month, this pointer should be 7.)
-(5) pointerMonth : the starting position in the array(eg :if you choose the 4th month in the year, this pointer should be 3.) 
-(6) counter : setting how many files to download
+Tunable variables in this script includes:  
+(1) currentDay : specifying the day that you wish to start with  
+(2) currentMonth : specifying the month that you wish to start with  
+(3) currentYear : specifying the year that you wish to start with  
+(4) pointerDay : the starting position in the array(eg :if you choose the 8th day in the month, this pointer should be 7.)  
+(5) pointerMonth : the starting position in the array(eg :if you choose the 4th month in the year, this pointer should be 3.)   
+(6) counter : setting how many files to download  
 
 
