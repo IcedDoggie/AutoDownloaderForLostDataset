@@ -4,8 +4,7 @@ Currently supports video downloading and tracks'file downloading only. The downl
 # User Manual
 To use it, you can copy the python files to designated folder. Target your cmd at the folder and run "python <filename.py>" (example: python AutoDownloadVideo.py).
 
-User interface in cmd as below:
-Format : python AutoDownloadTracks.py <year> <month> <day> <number of vids to download>
+Format : python AutoDownloadTracks.py (year) (month) (day) (number of videos to download)
 Example: python AutoDownloadTracks.py 2013 1 1 100
 
 NOTE: spacing is important!
