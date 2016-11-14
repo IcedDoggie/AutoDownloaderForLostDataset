@@ -1,21 +1,28 @@
 import urllib.request as urlRequest
+import sys
 # Fixed Variables
+userParam = sys.argv
+
 counter = 0
 dayArray = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17'
 ,'18','19','20','21','22','23','24','25','26','27','28','29','30','31']
 monthArray = ['01','02','03','04','05','06','07','08','09','10','11','12',]
 # Tunable Variables
-currentDay = dayArray[0]
-currentMonth = monthArray[1]
-currentYear = 2013
-pointerDay = 0
-pointerMonth = 1
+# currentYear = 2013 # input 1
+# pointerMonth = 1	   # input 2
+# pointerDay = 0   # input 3
+currentYear = int(userParam[1])
+currentMonth = monthArray[int(userParam[2]) - 1]
+currentDay = dayArray[int(userParam[3]) - 1]
+pointerMonth = int(userParam[2]) - 1
+pointerDay = int(userParam[3]) - 1
+
 # login credentials
 username = 'collaborator'
 password = 'bandwidth'
 
 
-while counter < 28:
+while counter < int(userParam[4]): #input 4
 	# http://lost.cse.wustl.edu/static/camera/001/001_2013-01-01_11-00-01/001_2013-01-01_11-00-01.avi
 	#template url: http://lost.cse.wustl.edu/static/camera/001/001_2013-08-07_11-00-01/001_2013-08-07_11-00-01.avi
 	# getting the complete url ready
@@ -28,7 +35,7 @@ while counter < 28:
 		opener = urlRequest.build_opener(auth)
 		urlRequest.install_opener(opener)
 		#Scrape it!
-		print(url)
+		# print(url)
 		content = urlRequest.urlretrieve(url, filename)
 	except:
 		pass
