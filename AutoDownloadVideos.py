@@ -35,7 +35,7 @@ while counter < int(userParam[4]): #input 4
 		opener = urlRequest.build_opener(auth)
 		urlRequest.install_opener(opener)
 		#Scrape it!
-		# print(url)
+		print(url)
 		content = urlRequest.urlretrieve(url, filename)
 	except:
 		pass
