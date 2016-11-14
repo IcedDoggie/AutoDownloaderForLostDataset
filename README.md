@@ -2,12 +2,12 @@
 Currently supports video downloading and tracks'file downloading only. The downloader is built with python.
 
 # User Manual
-To use it, you can copy the python files to designated folder. Target your cmd at the folder and run "python <filename.py>" (example: python AutoDownloadVideo.py).
-
-Format : python AutoDownloadTracks.py (year) (month) (day) (number of videos to download)
-Example: python AutoDownloadTracks.py 2013 1 1 100
-
-NOTE: spacing is important!
+To use it, you can copy the python files to designated folder. Target your cmd at the folder and run "python <filename.py>" (example: python AutoDownloadVideo.py).  
+  
+Format : python AutoDownloadTracks.py (year) (month) (day) (number of videos to download)  
+Example: python AutoDownloadTracks.py 2013 1 1 100  
+  
+NOTE: spacing is important!  
 # Tunables
 Tunable variables in this script includes:
 (1) currentDay : specifying the day that you wish to start with
